@@ -21,7 +21,10 @@ const Shop = () => {
                 products.map(product=><Product key={product.id} product={product}></Product>)
             }
                </div>
+               <div className='cart'>
                <Cart></Cart>
+               </div>
+               
             </div>
         </div>
     );
