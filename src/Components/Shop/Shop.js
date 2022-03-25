@@ -17,9 +17,6 @@ const Shop = () => {
             <div className='shop'>
                 <div className='row container-fluid'>
 
-               
-            
-      
             {
                 products.map(product=><Product key={product.id} product={product}></Product>)
             }
