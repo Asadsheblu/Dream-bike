@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Cart from '../Cart/Cart';
 import Product from './Product/Product';
 import './Shop.css'
-const cartFromLocalStorage=JSON.parse(localStorage.getItem('carts'))
+// const cartFromLocalStorage=JSON.parse(localStorage.getItem('carts','[]'))
 const Shop = () => {
     const [products,setProducts]=useState([])
-    const [carts,setCarts]=useState(cartFromLocalStorage)
+    const [carts,setCarts]=useState([])
     
     useEffect(()=>{
         fetch('bike-data.json')
@@ -13,10 +13,10 @@ const Shop = () => {
         .then(data=>setProducts(data))
     },[])
     //localstorage
-    useEffect(()=>{
-        localStorage.setItem('carts',JSON.stringify(carts));
+    // useEffect(()=>{
+    //     localStorage.setItem('carts',JSON.stringify(carts));
 
-    },[carts])
+    // },[carts])
     //addtocart function
     const addToCart=(product)=>{
         const newCart=[...carts,product]
