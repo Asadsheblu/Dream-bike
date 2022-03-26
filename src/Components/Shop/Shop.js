@@ -6,7 +6,7 @@ import './Shop.css'
 const Shop = () => {
     const [products,setProducts]=useState([])
     const [carts,setCarts]=useState([])
-    const [random,setRandom]=useState([])
+    
     useEffect(()=>{
         fetch('bike-data.json')
         .then(res=>res.json())
@@ -17,8 +17,8 @@ const Shop = () => {
        setCarts(newCart)
     }
     
-    const  ran=(product)=>{
-        var newCart=[...carts,product]
+    const  ran=()=>{
+        var newCart=[...carts]
         var randomItem = newCart[Math.floor(Math.random()*newCart.length)];
         setCarts(randomItem)
     }
@@ -45,7 +45,7 @@ const Shop = () => {
                {
                 carts.map(cart=><Cart key={cart.id} cart={cart}></Cart>)
             }
-            <button onClick={()=>ran(products)} className='btn btn-outline-warning m-2'>Choose 1 For Me</button>
+            <button onClick={ran} className='btn btn-outline-warning m-2'>Choose 1 For Me</button>
             
             <button onClick={remove} className='btn btn-outline-info m-2'>Chosse Again</button>
            <h1></h1>
