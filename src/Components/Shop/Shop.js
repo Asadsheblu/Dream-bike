@@ -1,3 +1,5 @@
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import Cart from '../Cart/Cart';
 import Product from './Product/Product';
@@ -24,11 +26,12 @@ const Shop = () => {
     }
     //random data show function
     const  random=()=>{
-        var newCart=[...carts]
-        var randomItem = newCart[Math.floor(Math.random()*newCart.length)];
+        let newCart=[...carts]
+        let randomItem = newCart[Math.floor(Math.random()*newCart.length)];
+    setCarts([randomItem])
         
-        alert('chosse for you from us:'+randomItem.name)
-        return
+        
+        
     }
     //clear item function
     const remove=()=>{
@@ -38,7 +41,7 @@ const Shop = () => {
    
     return (
         <div>
-          <h1 className='mt-5'>WellCome To Your Dream Bike Store</h1>
+          
            
            <div className='shop container-fluid'>
                
@@ -50,6 +53,9 @@ const Shop = () => {
             }
                </div>
                <div className='shadow'>
+
+                   <h3>Cart:<FontAwesomeIcon icon={faShoppingCart}>
+        </FontAwesomeIcon><sup>{carts.length}</sup></h3>
                <h6>Selected Item: </h6> 
                
                {
