@@ -1,8 +1,10 @@
 import React from 'react';
 
 const Question = () => {
+   
     return (
         <div className='p-5'>
+            
             <h1>Difference Between props and state</h1>
             <h6>Ans:</h6>
             <ul>

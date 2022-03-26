@@ -17,10 +17,12 @@ const Shop = () => {
        setCarts(newCart)
     }
     
-    const  ran=()=>{
+    const  random=()=>{
         var newCart=[...carts]
         var randomItem = newCart[Math.floor(Math.random()*newCart.length)];
-        setCarts(randomItem)
+        
+        alert('chosse for you from us:'+randomItem.name)
+        return
     }
     const remove=()=>{
         setCarts([])
@@ -28,12 +30,12 @@ const Shop = () => {
    
     return (
         <div>
-          
+          <h1 className='mt-5'>WellCome To Your Dream Bike Store</h1>
            
-           <div className='shop'>
+           <div className='shop container-fluid'>
                
           
-                <div className='row container-fluid'>
+                <div  class="row">
 
             {
                 products.map(product=><Product addToCart={addToCart} key={product.id} product={product}></Product>)
@@ -45,10 +47,10 @@ const Shop = () => {
                {
                 carts.map(cart=><Cart key={cart.id} cart={cart}></Cart>)
             }
-            <button onClick={ran} className='btn btn-outline-warning m-2'>Choose 1 For Me</button>
-            
-            <button onClick={remove} className='btn btn-outline-info m-2'>Chosse Again</button>
-           <h1></h1>
+            <button onClick={random} className='btn btn-outline-warning mb-2'>Choose 1 For Me</button>
+            <br></br>
+            <button onClick={remove} className='btn btn-outline-info'>Reset item</button>
+
             
             </div>  
             </div>  
