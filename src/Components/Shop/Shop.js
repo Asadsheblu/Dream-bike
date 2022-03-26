@@ -2,21 +2,27 @@ import React, { useEffect, useState } from 'react';
 import Cart from '../Cart/Cart';
 import Product from './Product/Product';
 import './Shop.css'
-
+const cartFromLocalStorage=JSON.parse(localStorage.getItem('carts'))
 const Shop = () => {
     const [products,setProducts]=useState([])
-    const [carts,setCarts]=useState([])
+    const [carts,setCarts]=useState(cartFromLocalStorage)
     
     useEffect(()=>{
         fetch('bike-data.json')
         .then(res=>res.json())
         .then(data=>setProducts(data))
     },[])
+    //localstorage
+    useEffect(()=>{
+        localStorage.setItem('carts',JSON.stringify(carts));
+
+    },[carts])
+    //addtocart function
     const addToCart=(product)=>{
         const newCart=[...carts,product]
        setCarts(newCart)
     }
-    
+    //random data show function
     const  random=()=>{
         var newCart=[...carts]
         var randomItem = newCart[Math.floor(Math.random()*newCart.length)];
@@ -24,9 +30,11 @@ const Shop = () => {
         alert('chosse for you from us:'+randomItem.name)
         return
     }
+    //clear item function
     const remove=()=>{
         setCarts([])
     }
+    
    
     return (
         <div>
