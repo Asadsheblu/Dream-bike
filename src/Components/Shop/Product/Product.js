@@ -1,3 +1,5 @@
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
 const Product = ({product,addToCart}) => {
@@ -7,7 +9,10 @@ const Product = ({product,addToCart}) => {
             <img className='img-fluid shadow-lg border' src={picture} alt=""></img>
             <h3>Name:{name}</h3>
             <h4>Price:{Price}</h4>
-            <button onClick={()=>addToCart(product)} className='btn btn-success'>Add To Cart</button>
+            <button onClick={()=>addToCart(product)} className='btn btn-success'>
+                Add To Cart <FontAwesomeIcon icon={faShoppingCart}></FontAwesomeIcon>
+            
+            </button>
         </div>
     );
 };
